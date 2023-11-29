@@ -13,6 +13,9 @@ public:
 
 protected:
     void contextMenuEvent(QContextMenuEvent* event) override;
+
+private slots:
+    void addToLocalDataBaseSlot();
 };
 
 #endif // CUSTOMFILMLISTWIDGET_H
