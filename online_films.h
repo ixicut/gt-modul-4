@@ -30,7 +30,7 @@ private:
     QList<Movie*> movieList;
     QLineEdit *searchLineEdit;
     QPushButton *searchButton;
-    CustomFilmListWidget *movieListWidget;
+    QListWidget *movieListWidget;
 };
 
 #endif // ONLINE_FILMS_H
