@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -30,6 +30,7 @@ SOURCES += \
     info_movie_dialog.cpp \
         main.cpp \
     main_window.cpp \
+    movie.cpp \
     my_model.cpp
 
 HEADERS += \
@@ -37,6 +38,7 @@ HEADERS += \
     filter_widget.h \
     info_movie_dialog.h \
     main_window.h \
+    movie.h \
     my_model.h
 
 FORMS +=
