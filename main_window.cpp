@@ -1,5 +1,6 @@
 #include <QListWidget>
 #include "main_window.h"
+#include "online_films.h"
 
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
@@ -48,8 +49,8 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     tab1->setLayout(lay_all);
     tabWidget->addTab(tab1, "Movie Management");
 
-    QListWidget *listWidget = new QListWidget(tabWidget);
-    tabWidget->addTab(listWidget, "Inspect Movies");
+    OnlineFilms *filmWidget = new OnlineFilms(tabWidget);
+    tabWidget->addTab(filmWidget, "Inspect Movies");
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(tabWidget);
