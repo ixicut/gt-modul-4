@@ -1,26 +1,28 @@
+#include <QListWidget>
 #include "main_window.h"
+
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
 {
-    lay_button=new QVBoxLayout;
+    lay_button = new QVBoxLayout;
     lay = new QHBoxLayout;
     lay_all = new QVBoxLayout;
 
-    button_add = new QPushButton("&Add new",this);
-    button_info = new QPushButton("&Information",this);
-    button_close = new QPushButton("&Close",this);
+    button_add = new QPushButton("&Add new", this);
+    button_info = new QPushButton("&Information", this);
+    button_close = new QPushButton("&Close", this);
     lay_button->addWidget(button_add);
     lay_button->addWidget(button_info);
     lay_button->addWidget(button_close);
-    lay_button->setAlignment(this,Qt::AlignRight);
-    
+    lay_button->setAlignment(this, Qt::AlignRight);
+
     filter = new FilterWidget(this);
     w_info = new InfoMovieDialog;
     lay_all->addWidget(filter);
-    resize(700,50);
+    resize(700, 50);
 
     model = new QSqlTableModel;
-    
+
     myModel = new MyModel;
     my_dialog_add = new AddMovieDialog;
     myModel->setTable("films");
@@ -33,22 +35,34 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent)
     view = new QTableView;
     view->setModel(myModel);
     view->setParent(this);
-    view->move(0,50);
-    view->resize(700,250);
+    view->move(0, 50);
+    view->resize(700, 250);
 
     lay->addWidget(view);
     lay->addLayout(lay_button);
     lay_all->addLayout(lay);
-    setLayout(lay_all);
 
-    resize(750,400);
-    connect(button_add,SIGNAL(clicked(bool)),this,SLOT(slot_show_add_dialog()));
-    connect(my_dialog_add->button_ok,SIGNAL(pressed()),this,SLOT(slot_add_new()));
-    connect(button_close,SIGNAL(pressed()),this,SLOT(slot_close()));
-    connect(filter->button_find,SIGNAL(pressed()),this,SLOT(slot_find()));
-    connect(filter->button_reset,SIGNAL(pressed()),this,SLOT(slot_reset_filter()));
+    QTabWidget *tabWidget = new QTabWidget(this);
 
-    connect(button_info,SIGNAL(pressed()),this,SLOT(slot_show_info()));
+    QWidget *tab1 = new QWidget(tabWidget);
+    tab1->setLayout(lay_all);
+    tabWidget->addTab(tab1, "Movie Management");
+
+    QListWidget *listWidget = new QListWidget(tabWidget);
+    tabWidget->addTab(listWidget, "Inspect Movies");
+
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(tabWidget);
+    setLayout(mainLayout);
+
+    resize(750, 400);
+    connect(button_add, SIGNAL(clicked(bool)), this, SLOT(slot_show_add_dialog()));
+    connect(my_dialog_add->button_ok, SIGNAL(pressed()), this, SLOT(slot_add_new()));
+    connect(button_close, SIGNAL(pressed()), this, SLOT(slot_close()));
+    connect(filter->button_find, SIGNAL(pressed()), this, SLOT(slot_find()));
+    connect(filter->button_reset, SIGNAL(pressed()), this, SLOT(slot_reset_filter()));
+
+    connect(button_info, SIGNAL(pressed()), this, SLOT(slot_show_info()));
 }
 
 bool MainWindow::add_new_row()
