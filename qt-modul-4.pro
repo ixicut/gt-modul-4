@@ -31,7 +31,8 @@ SOURCES += \
         main.cpp \
     main_window.cpp \
     movie.cpp \
-    my_model.cpp
+    my_model.cpp \
+    online_films.cpp
 
 HEADERS += \
     add_movie_dialog.h \
@@ -39,6 +40,7 @@ HEADERS += \
     info_movie_dialog.h \
     main_window.h \
     movie.h \
-    my_model.h
+    my_model.h \
+    online_films.h
 
 FORMS +=
