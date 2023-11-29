@@ -7,6 +7,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QListWidget>
+#include "custom_film_list_widget.h"
 
 class Movie;
 
@@ -29,7 +30,7 @@ private:
     QList<Movie*> movieList;
     QLineEdit *searchLineEdit;
     QPushButton *searchButton;
-    QListWidget *movieListWidget;
+    CustomFilmListWidget *movieListWidget;
 };
 
 #endif // ONLINE_FILMS_H

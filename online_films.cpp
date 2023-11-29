@@ -14,7 +14,7 @@ OnlineFilms::OnlineFilms(QWidget *parent) : QWidget(parent)
 {
     searchLineEdit = new QLineEdit(this);
     searchButton = new QPushButton("Search", this);
-    movieListWidget = new QListWidget(this);
+    movieListWidget = new CustomFilmListWidget(this);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(searchLineEdit);

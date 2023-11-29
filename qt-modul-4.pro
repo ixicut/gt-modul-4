@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     add_movie_dialog.cpp \
+    custom_film_list_widget.cpp \
     filter_widget.cpp \
     info_movie_dialog.cpp \
         main.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
 
 HEADERS += \
     add_movie_dialog.h \
+    custom_film_list_widget.h \
     filter_widget.h \
     info_movie_dialog.h \
     main_window.h \

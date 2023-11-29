@@ -149,7 +149,6 @@ void MainWindow::show_info()
 
     temp_model.setData(temp_model.index(0,4),w_info->get_text());
 
-
     temp_model.submitAll();
 
     myModel->select();
